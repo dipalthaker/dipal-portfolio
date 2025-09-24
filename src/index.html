@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dipal Thaker – Portfolio</title>
+  <meta name="description" content="Single-page portfolio for MP1 (HTML + SCSS + Vanilla JS)">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header id="top" class="site-header">
+    <nav class="navbar">
+      <a class="brand" href="#hero">
+        <span class="brand-mark">DT</span>
+        <span class="brand-text">Dipal Thaker</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
+        <!-- <i class="fa-solid fa-bars"></i> -->
+      </button>
+      <ul id="nav-links" class="nav-links">
+        <li><a href="#about" data-nav>About</a></li>
+        <li><a href="#projects" data-nav>Projects</a></li>
+        <li><a href="#experience" data-nav>Experience</a></li>
+        <li><a href="#gallery" data-nav>Gallery</a></li>
+        <li><a href="#contact" data-nav>Contact</a></li>
+      </ul>
+      <div class="scroll-indicator"><span class="bar"></span></div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero" class="stripe hero v-center">
+    <div>
+      <h1 class="glow">Hi, I’m Dipal — Building Data-Driven Products</h1>
+      <p>MS in Information Management @ UIUC • Software Developer • Data Enthusiast</p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn">View Work</a>
+        <button class="btn-outline" data-open-modal="#introModal">Quick Intro</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="stripe about">
+    <div class="container">
+      <h2>About</h2>
+      <div class="columns">
+        <p>I am a graduate student in Information Management at the University of Illinois Urbana-Champaign with a 4.0 GPA. My focus areas include data engineering, full-stack software development, and product design.</p>
+        <p>I have experience in backend development, API design, data pipelines, and building applications using Python, FastAPI, React, SQL, and Docker. I also work extensively with cloud platforms like AWS and GCP.</p>
+        <p>Beyond coding, I am passionate about accessibility, mentoring peers, and integrating design with functionality for impactful products.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS (CAROUSEL) -->
+  <section id="projects" class="stripe projects">
+    <div class="container">
+      <h2>Highlighted Projects</h2>
+      <div class="carousel" data-carousel>
+        <button class="carousel-control prev" data-carousel-prev>
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <div class="carousel-track" data-carousel-track>
+          <article class="slide">
+            <h3>Job Application Tracker</h3>
+            <p>Full-stack web app with FastAPI, PostgreSQL, React.js, AWS S3</p>
+          </article>
+          <article class="slide">
+            <h3>Market Data Microservice</h3>
+            <p>FastAPI, Apache Kafka, PostgreSQL, Docker, event-driven design</p>
+          </article>
+          <article class="slide">
+            <h3>FMCG Sales Forecasting</h3>
+            <p>Time-series models (ARIMA, ETS) with SQL + R, 95% accuracy</p>
+          </article>
+        </div>
+        <button class="carousel-control next" data-carousel-next>
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE (GRID CARDS) -->
+  <section id="experience" class="stripe experience">
+    <div class="container">
+      <h2>Experience</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Research Assistant — mHealth App (UIUC)</h3>
+          <p><em>May 2025 – Present</em></p>
+          <ul>
+            <li>Built personalized profiles & AI-driven workout recommendations.</li>
+            <li>Created interactive flows, boosting engagement by 35%.</li>
+            <li>Integrated SQLite for secure offline storage.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Software Developer — Deloitte USI</h3>
+          <p><em>Jun 2023 – Aug 2024</em></p>
+          <ul>
+            <li>Engineered Java backend modules, improving accuracy by 30%.</li>
+            <li>Optimized 50+ functions, cutting runtime by 40%.</li>
+            <li>Streamlined pipelines, reducing report time by 50%.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Quality Analyst Intern — Reliance Jio</h3>
+          <p><em>Jun 2022 – Oct 2022</em></p>
+          <ul>
+            <li>Created 1,000+ test cases, boosting defect detection by 35%.</li>
+            <li>Performed live testing, cutting production issues by 40%.</li>
+            <li>Maintained defect logs in Azure DevOps for reliability.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Software Engineering Intern — Levyne Tech</h3>
+          <p><em>Mar 2021 – Aug 2021</em></p>
+          <ul>
+            <li>Delivered REST APIs in Python integrated with React apps.</li>
+            <li>Improved data sync by 25% via PostgreSQL integration.</li>
+            <li>Accelerated development speed by 40% using Agile sprints.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="stripe parallax">
+    <div class="parallax-inner v-center">
+      <h2 class="overlay">Craft Meets Code</h2>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section id="video" class="stripe video">
+    <div class="container">
+      <h2>Showreel</h2>
+      <video controls preload="metadata" width="100%">
+        <source src="https://code.org/images/video/How_Computers_Work.mp4" type="video/mp4">
+        Your browser does not support the HTML5 video tag.
+      </video>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="stripe contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <p>Let’s connect!</p>
+      <ul class="social">
+        <li><a href="mailto:dipalat2@illinois.edu" aria-label="Email"><i class="fa-solid fa-envelope"></i></a></li>
+        <li><a href="https://github.com/dipalthaker" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a></li>
+        <li><a href="https://www.linkedin.com/in/dipalthaker2/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="stripe footer">
+    <div class="container">
+      <p>© <span id="year"></span> Dipal Thaker • Built for MP1</p>
+      <a href="#top" class="back-to-top"><i class="fa-solid fa-arrow-up"></i></a>
+    </div>
+  </footer>
+
+  <!-- MODALS -->
+  <div id="introModal" class="modal" aria-hidden="true">
+    <div class="modal-dialog">
+      <button class="modal-close" data-close-modal><i class="fa-solid fa-xmark"></i></button>
+      <h3>Quick Intro</h3>
+      <p>Thanks for visiting! This site demonstrates all MP1 features with HTML, SCSS, and vanilla JS.</p>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,182 +1,862 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dipal Thaker – Portfolio</title>
-  <meta name="description" content="Single-page portfolio for MP1 (HTML + SCSS + Vanilla JS)">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dipal Thaker | Portfolio</title>
+  <link rel="stylesheet" href="css/main.css" />
 
-  <!-- NAVBAR -->
-  <header id="top" class="site-header">
-    <nav class="navbar">
-      <a class="brand" href="#hero">
-        <span class="brand-mark">DT</span>
-        <span class="brand-text">Dipal Thaker</span>
-      </a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
-        <!-- <i class="fa-solid fa-bars"></i> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Custom Cursor (desktop only) -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <nav class="navWide container" aria-label="Primary">
+      <a class="brandText hoverable" href="#home">Dipal Thaker</a>
+
+      <button class="burger hoverable" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
       </button>
-      <ul id="nav-links" class="nav-links">
-        <li><a href="#about" data-nav>About</a></li>
-        <li><a href="#projects" data-nav>Projects</a></li>
-        <li><a href="#experience" data-nav>Experience</a></li>
-        <li><a href="#gallery" data-nav>Gallery</a></li>
-        <li><a href="#contact" data-nav>Contact</a></li>
-      </ul>
-      <div class="scroll-indicator"><span class="bar"></span></div>
+
+      <div class="nav-menu navWideMenu" data-open="false">
+        <a class="navLink hoverable" href="#about" data-nav="about">ABOUT ME</a>
+        <a class="navLink hoverable" href="#projects" data-nav="projects">PROJECTS</a>
+        <a class="navLink hoverable" href="#experience" data-nav="experience">EXPERIENCE</a>
+        <a class="navLink hoverable" href="#education" data-nav="education">EDUCATION</a>
+        <a class="navLink hoverable" href="#skills" data-nav="skills">EXPERTISE &amp; SKILLS</a>
+        <a class="navLink hoverable" href="#leadership" data-nav="leadership">LEADERSHIP</a>
+        <a class="navLink hoverable" href="#extracurricular" data-nav="extracurricular">EXTRA-CURRICULAR</a>
+
+        <a class="btn-pill hoverable navContactBtn" href="#contact">CONTACT</a>
+      </div>
     </nav>
   </header>
 
   <!-- HERO -->
-  <section id="hero" class="stripe hero v-center">
-    <div>
-      <h1 class="glow">Hi, I’m Dipal — Building Data-Driven Products</h1>
-      <p>MS in Information Management @ UIUC • Software Developer • Data Enthusiast</p>
-      <div class="hero-cta">
-        <a href="#projects" class="btn">View Work</a>
-        <button class="btn-outline" data-open-modal="#introModal">Quick Intro</button>
+  <main id="home" class="section hero">
+    <div class="container hero-grid hero-enter">
+      <div class="hero-left">
+        <div class="kicker">Full-Stack Engineer <br/> Data Analyst</div>
+        <h1 class="hero-title">Dipal</h1>
+      </div>
+
+      <div class="hero-center">
+        <div class="portrait-card">
+          <img src="assets/image.jpeg" alt="Portrait" draggable="false" />
+        </div>
+
+        <!-- Hi bubble BELOW image (not on image) -->
+        <button
+          class="hand-badge hand-badge--below hoverable"
+          type="button"
+          aria-label="Quick contact"
+          data-scroll="#contact"
+        >
+          <span aria-hidden="true">Hi!</span>
+        </button>
+      </div>
+
+      <div class="hero-right">
+        <h1 class="hero-title hero-title--right">Thaker</h1>
+        <div class="kicker">
+          Full-stack + data-driven builder.<br />
+          APIs, dashboards, analytics, and systems that scale.<br />
+          UIUC MSIM (Expected 2026)
+        </div>
       </div>
     </div>
-  </section>
+  </main>
 
   <!-- ABOUT -->
-  <section id="about" class="stripe about">
-    <div class="container">
-      <h2>About</h2>
-      <div class="columns">
-        <p>I am a graduate student in Information Management at the University of Illinois Urbana-Champaign with a 4.0 GPA. My focus areas include data engineering, full-stack software development, and product design.</p>
-        <p>I have experience in backend development, API design, data pipelines, and building applications using Python, FastAPI, React, SQL, and Docker. I also work extensively with cloud platforms like AWS and GCP.</p>
-        <p>Beyond coding, I am passionate about accessibility, mentoring peers, and integrating design with functionality for impactful products.</p>
-      </div>
-    </div>
-  </section>
+  <section id="about" class="section">
+    <div class="container section-grid">
+      <div class="section-left reveal">
+        <h2 class="section-title">ABOUT ME</h2>
+        <p class="section-lead">
+          Hi, I’m Dipal, an MSIM graduate student at UIUC (Expected 2026) building full-stack and data products that are clean, fast, and actually usable.
+          I’m a fast learner and adapt quickly to new tools and tech based on project needs.
+        </p>
 
-  <!-- PROJECTS (CAROUSEL) -->
-  <section id="projects" class="stripe projects">
-    <div class="container">
-      <h2>Highlighted Projects</h2>
-      <div class="carousel" data-carousel>
-        <button class="carousel-control prev" data-carousel-prev>
-          <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <div class="carousel-track" data-carousel-track>
-          <article class="slide">
-            <h3>Job Application Tracker</h3>
-            <p>Full-stack web app with FastAPI, PostgreSQL, React.js, AWS S3</p>
-          </article>
-          <article class="slide">
-            <h3>Market Data Microservice</h3>
-            <p>FastAPI, Apache Kafka, PostgreSQL, Docker, event-driven design</p>
-          </article>
-          <article class="slide">
-            <h3>FMCG Sales Forecasting</h3>
-            <p>Time-series models (ARIMA, ETS) with SQL + R, 95% accuracy</p>
-          </article>
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-num">3+</div>
+            <div class="stat-label">Roles (Deloitte, Jio, Internship)</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">6+</div>
+            <div class="stat-label">Projects (Full-stack + data)</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">10+</div>
+            <div class="stat-label">Tools/Tech I use actively</div>
+          </div>
         </div>
-        <button class="carousel-control next" data-carousel-next>
-          <i class="fa-solid fa-chevron-right"></i>
-        </button>
-      </div>
-    </div>
-  </section>
 
-  <!-- EXPERIENCE (GRID CARDS) -->
-  <section id="experience" class="stripe experience">
-    <div class="container">
-      <h2>Experience</h2>
-      <div class="cards">
-        <div class="card">
-          <h3>Research Assistant — mHealth App (UIUC)</h3>
-          <p><em>May 2025 – Present</em></p>
-          <ul>
-            <li>Built personalized profiles & AI-driven workout recommendations.</li>
-            <li>Created interactive flows, boosting engagement by 35%.</li>
-            <li>Integrated SQLite for secure offline storage.</li>
-          </ul>
+        <div class="info-grid">
+          <div class="info">
+            <div class="info-label">Call / WhatsApp</div>
+            <div class="info-value">+1 447 902 6686</div>
+          </div>
+          <div class="info">
+            <div class="info-label">Email</div>
+            <div class="info-value">dipalat2@illinois.edu</div>
+          </div>
         </div>
-        <div class="card">
-          <h3>Software Developer — Deloitte USI</h3>
-          <p><em>Jun 2023 – Aug 2024</em></p>
-          <ul>
-            <li>Engineered Java backend modules, improving accuracy by 30%.</li>
-            <li>Optimized 50+ functions, cutting runtime by 40%.</li>
-            <li>Streamlined pipelines, reducing report time by 50%.</li>
-          </ul>
+
+        <div class="social-row">
+          <a class="icon-btn hoverable" 
+             href="https://www.linkedin.com/in/dipalthaker2/" 
+             aria-label="LinkedIn" 
+             target="_blank" 
+             rel="noopener noreferrer">
+            <img src="assets/linkedin.png" alt="LinkedIn">
+          </a>
+        
+          <a class="icon-btn hoverable" 
+             href="https://github.com/dipalthaker" 
+             aria-label="GitHub" 
+             target="_blank" 
+             rel="noopener noreferrer">
+            <img src="assets/github.png" alt="GitHub">
+          </a>
+        
+          <a class="resume-btn"
+              href="assets/Dipal A Thaker_Resume.pdf"
+              target="_blank"
+              rel="noopener">
+              View Resume
+          </a>
         </div>
-        <div class="card">
-          <h3>Quality Analyst Intern — Reliance Jio</h3>
-          <p><em>Jun 2022 – Oct 2022</em></p>
-          <ul>
-            <li>Created 1,000+ test cases, boosting defect detection by 35%.</li>
-            <li>Performed live testing, cutting production issues by 40%.</li>
-            <li>Maintained defect logs in Azure DevOps for reliability.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Software Engineering Intern — Levyne Tech</h3>
-          <p><em>Mar 2021 – Aug 2021</em></p>
-          <ul>
-            <li>Delivered REST APIs in Python integrated with React apps.</li>
-            <li>Improved data sync by 25% via PostgreSQL integration.</li>
-            <li>Accelerated development speed by 40% using Agile sprints.</li>
-          </ul>
+        
+      </div>
+
+      <div class="section-right reveal">
+        <div class="tilt-card">
+          <img src="assets/image2.jpeg" alt="About portrait" draggable="false" />
         </div>
       </div>
     </div>
+
+    <div class="section-divider container"></div>
   </section>
 
-  <!-- GALLERY -->
-  <section id="gallery" class="stripe parallax">
-    <div class="parallax-inner v-center">
-      <h2 class="overlay">Craft Meets Code</h2>
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <div class="container reveal">
+      <h2 class="section-title">MY PROJECTS</h2>
+      <p class="section-lead">
+        Selected work across full-stack development, analytics, and applied ML.
+      </p>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <article class="project-card" data-card-id="project-1">
+          <div class="project-card-inner">
+            <div class="project-card-front">
+              <div class="card-top">
+                <div class="pill">Full-Stack</div>
+                <div class="stars">★★★★★</div>
+              </div>
+              <h3>Job Application Tracker</h3>
+              <p>
+                Full-stack web app to track applications, statuses, links, notes, and documents
+                through a clean API-first architecture.
+              </p>
+              <div class="tags">
+                <span>FastAPI</span><span>React</span><span>PostgreSQL</span><span>Docker</span>
+              </div>
+              <button class="btn-details" type="button" data-flip="project-1">Details</button>
+            </div>
+
+            <div class="project-card-back">
+              <div class="back-header">
+                <h3>Job Application Tracker</h3>
+                <p class="back-subtitle">Full-Stack • FastAPI, React, PostgreSQL</p>
+              </div>
+              <ul class="back-bullets">
+                <li>Designed relational schemas and REST APIs for scalable tracking workflows.</li>
+                <li>Built a responsive React UI with filters, status views, and CRUD operations.</li>
+                <li>Implemented clean status tracking and notes/doc-link capture to reduce spreadsheet chaos.</li>
+              </ul>
+              <div class="back-links">
+                <a href="https://github.com/dipalthaker/job-tracker-app" class="link hoverable" target="_blank" rel="noopener">GitHub →</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card" data-card-id="project-2">
+          <div class="project-card-inner">
+            <div class="project-card-front">
+              <div class="card-top">
+                <div class="pill">ML / Data</div>
+                <div class="stars">★★★★★</div>
+              </div>
+              <h3>F1 Race Prediction + Monte Carlo</h3>
+              <p>
+                Data science pipeline using feature engineering and Monte Carlo simulation
+                to predict race outcomes and explore scenario-based uncertainty.
+              </p>
+              <div class="tags">
+                <span>Python</span><span>Pandas</span><span>Simulation</span><span>Analytics</span>
+              </div>
+              <button class="btn-details" type="button" data-flip="project-2">Details</button>
+            </div>
+
+            <div class="project-card-back">
+              <div class="back-header">
+                <h3>F1 Race Prediction + Monte Carlo</h3>
+                <p class="back-subtitle">ML / Data • Python, Pandas, Simulation</p>
+              </div>
+              <ul class="back-bullets">
+                <li>Engineered race-level features from historical datasets.</li>
+                <li>Used probabilistic simulation to model outcome distributions.</li>
+              </ul>
+              <div class="back-links"></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card" data-card-id="project-3">
+          <div class="project-card-inner">
+            <div class="project-card-front">
+              <div class="card-top">
+                <div class="pill">Analytics</div>
+                <div class="stars">★★★★★</div>
+              </div>
+              <h3>S&amp;P 500 ESG Dashboard</h3>
+              <p>
+                ESG risk analysis + interactive dashboard on Tableau; advanced analytics in Jupyter and
+                visualization for comparison and insights.
+              </p>
+              <div class="tags">
+                <span>Python</span><span>Jupyter</span><span>Tableau</span><span>EDA</span>
+              </div>
+              <button class="btn-details" type="button" data-flip="project-3">Details</button>
+            </div>
+
+            <div class="project-card-back">
+              <div class="back-header">
+                <h3>S&amp;P 500 ESG Dashboard</h3>
+                <p class="back-subtitle">Analytics • Python, Jupyter, Tableau</p>
+              </div>
+              <ul class="back-bullets">
+                <li>Analyzed ESG risk ratings for S&amp;P 500 companies and built insights across sectors and risk categories.</li>
+                <li>Performed data cleaning, feature exploration, and advanced analytics in Jupyter using Python.</li>
+              </ul>
+              <div class="back-links"></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="project-card" data-card-id="project-4">
+          <div class="project-card-inner">
+            <div class="project-card-front">
+              <div class="card-top">
+                <div class="pill">Backend / Streaming</div>
+                <div class="stars">★★★★★</div>
+              </div>
+              <h3>Market Data Microservice</h3>
+              <p>
+                Real-time stock-data microservice using event-driven architecture for fast ingestion and persistence.
+              </p>
+              <div class="tags">
+                <span>FastAPI</span><span>Kafka</span><span>PostgreSQL</span><span>Swagger</span>
+              </div>
+              <button class="btn-details" type="button" data-flip="project-4">Details</button>
+            </div>
+
+            <div class="project-card-back">
+              <div class="back-header">
+                <h3>Market Data Microservice</h3>
+                <p class="back-subtitle">Backend / Streaming • FastAPI, Kafka, PostgreSQL</p>
+              </div>
+              <ul class="back-bullets">
+                <li>Implemented real-time microservice using FastAPI, Kafka, PostgreSQL for event persistence.</li>
+                <li>Streamlined async message handling to achieve sub-500 ms latency with CI/CD validation pipelines.</li>
+              </ul>
+              <div class="back-links">
+                <a href="https://github.com/dipalthaker/market-data-service" class="link hoverable" target="_blank" rel="noopener">GitHub →</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 5 -->
+        <article class="project-card" data-card-id="project-5">
+          <div class="project-card-inner">
+            <div class="project-card-front">
+              <div class="card-top">
+                <div class="pill">Analytics / Forecasting</div>
+                <div class="stars">★★★★★</div>
+              </div>
+              <h3>FMCG Sales Demand Forecasting</h3>
+              <p>
+                Built time-series forecasting models and optimized supply planning using large-scale transactional data.
+              </p>
+              <div class="tags">
+                <span>R</span><span>ARIMA</span><span>ETS</span><span>Pandas</span><span>ggplot2</span>
+              </div>
+              <button class="btn-details" type="button" data-flip="project-5">Details</button>
+            </div>
+
+            <div class="project-card-back">
+              <div class="back-header">
+                <h3>FMCG Sales Demand Forecasting</h3>
+                <p class="back-subtitle">Analytics / Forecasting • R, ARIMA, ETS</p>
+              </div>
+              <ul class="back-bullets">
+                <li>Developed ARIMA and ETS models in R, reaching 95% forecast accuracy for FMCG demand.</li>
+                <li>Processed 1M+ transactions using SQL and Pandas; visualized insights with ggplot2.</li>
+              </ul>
+              <div class="back-links"></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 6 -->
+        <article class="project-card" data-card-id="project-6">
+          <div class="project-card-inner">
+            <div class="project-card-front">
+              <div class="card-top">
+                <div class="pill">Full-Stack</div>
+                <div class="stars">★★★★★</div>
+              </div>
+              <h3>E-Clinical Portal</h3>
+              <p>
+                Healthcare information management system for patient scheduling and record management.
+              </p>
+              <div class="tags">
+                <span>MySQL</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Auth</span>
+              </div>
+              <button class="btn-details" type="button" data-flip="project-6">Details</button>
+            </div>
+
+            <div class="project-card-back">
+              <div class="back-header">
+                <h3>E-Clinical Portal</h3>
+                <p class="back-subtitle">Full-Stack • MySQL, HTML, CSS, JavaScript</p>
+              </div>
+              <ul class="back-bullets">
+                <li>Constructed a MySQL-backed scheduling + records platform, minimizing conflicts by 40%.</li>
+                <li>Introduced role-based authentication to strengthen security and prevent unauthorized access.</li>
+              </ul>
+              <div class="back-links"></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 7 -->
+        <article class="project-card" data-card-id="project-7">
+          <div class="project-card-inner">
+            <div class="project-card-front">
+              <div class="card-top">
+                <div class="pill">Data Analysis</div>
+                <div class="stars">★★★★★</div>
+              </div>
+              <h3>Covid-19 Data Analysis</h3>
+              <p>
+                Analyzed pandemic trends using Python (pandas, matplotlib) to uncover insights on case growth and regional impact.
+              </p>
+              <div class="tags">
+                <span>Python</span><span>Pandas</span><span>Matplotlib</span><span>Data Viz</span>
+              </div>
+              <button class="btn-details" type="button" data-flip="project-7">Details</button>
+            </div>
+            <div class="project-card-back">
+              <div class="back-header">
+                <h3>Covid-19 Data Analysis</h3>
+                <p class="back-subtitle">Data Analysis • Python, Pandas</p>
+              </div>
+              <ul class="back-bullets">
+                <li>Cleaned and processed large-scale time-series data from multiple sources.</li>
+                <li>Performed exploratory data analysis to identify trends and patterns.</li>
+                <li>Created visualizations to communicate insights on case growth and mortality rates.</li>
+              </ul>
+              <div class="back-links">
+                <a href="https://github.com/dipalthaker/covid-analysis" class="link hoverable" target="_blank" rel="noopener">GitHub →</a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
     </div>
+
+    <div class="section-divider container"></div>
   </section>
 
-  <!-- VIDEO -->
-  <section id="video" class="stripe video">
-    <div class="container">
-      <h2>Showreel</h2>
-      <video controls preload="metadata" width="100%">
-        <source src="https://code.org/images/video/How_Computers_Work.mp4" type="video/mp4">
-        Your browser does not support the HTML5 video tag.
-      </video>
-    </div>
-  </section>
+<!-- EXPERIENCE (Vertical Timeline with logos across the line) -->
+<section id="experience" class="section">
+  <div class="container reveal">
+    <h2 class="section-title">EXPERIENCE</h2>
+    <p class="section-lead">
+      Roles across full-stack development, data analysis, and quality engineering.
+    </p>
 
-  <!-- CONTACT -->
-  <section id="contact" class="stripe contact">
-    <div class="container">
-      <h2>Contact</h2>
-      <p>Let’s connect!</p>
-      <ul class="social">
-        <li><a href="mailto:dipalat2@illinois.edu" aria-label="Email"><i class="fa-solid fa-envelope"></i></a></li>
-        <li><a href="https://github.com/dipalthaker" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a></li>
-        <li><a href="https://www.linkedin.com/in/dipalthaker2/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a></li>
-      </ul>
-    </div>
-  </section>
+    <div class="vt-timeline">
 
-  <!-- FOOTER -->
-  <footer class="stripe footer">
-    <div class="container">
-      <p>© <span id="year"></span> Dipal Thaker • Built for MP1</p>
-      <a href="#top" class="back-to-top"><i class="fa-solid fa-arrow-up"></i></a>
-    </div>
-  </footer>
+      <!-- ===================== EXPERIENCE 1 ===================== -->
+      <article class="vt-item left">
+        <span class="vt-dot" aria-hidden="true"></span>
 
-  <!-- MODALS -->
-  <div id="introModal" class="modal" aria-hidden="true">
-    <div class="modal-dialog">
-      <button class="modal-close" data-close-modal><i class="fa-solid fa-xmark"></i></button>
-      <h3>Quick Intro</h3>
-      <p>Thanks for visiting! This site demonstrates all MP1 features with HTML, SCSS, and vanilla JS.</p>
+        <!-- LEFT: LOGO -->
+        <div class="vt-side vt-logo-side">
+          <img src="assets/uiuc.png" alt="UIUC logo">
+        </div>
+
+        <!-- RIGHT: CONTENT -->
+        <div class="vt-card">
+          <div class="vt-date">Present</div>
+          <div class="vt-role">Lead App Developer / Project Manager</div>
+          <div class="vt-org">mHealth App (School of Information Sciences, USA)</div>
+
+          <p class="vt-desc">
+            Led end-to-end development of a production-ready, cross-platform Flutter/Dart mHealth application delivering AI-generated workout recommendations to 100+ elderly users. Designed secure PHI handling with encrypted SQLite storage aligned with HIPAA and healthcare data-privacy standards, while guiding a 5-member Agile team through sprint planning, code reviews, and version control. Improved accessibility, navigation, and adaptive layouts, driving a 35% increase in user engagement.</p>
+
+          <!-- <ul class="vt-bullets">
+            <li>Leading end-to-end development of a cross-platform Flutter/Dart mHealth application integrating AI-generated workout recommendations used by 100+ elderly participants</li>
+            <li>Designed secure PHI data storage using encrypted SQLite databases, adhering to HIPAA compliance and healthcare data privacy standards</li>
+            <li>Orchestrated a 5-member Agile team through sprint planning, code reviews, and version control</li>
+            <li>Enhanced app engagement by 35% through adaptive layouts, accessibility features, and intuitive navigation</li>
+          </ul> -->
+        </div>
+      </article>
+
+      <!-- ===================== EXPERIENCE 2 ===================== -->
+      <article class="vt-item right">
+        <span class="vt-dot" aria-hidden="true"></span>
+
+        <!-- LEFT: CONTENT -->
+        <div class="vt-card">
+          <div class="vt-date">June 2023 – August 2024</div>
+          <div class="vt-role">Software Developer (Cloud Engineering)</div>
+          <div class="vt-org">Deloitte USI, India</div>
+
+          <p class="vt-desc">
+            Built Java-based automated data-validation pipelines for large-scale healthcare portal datasets using SQL, improving data quality and reducing manual QA effort by approximately 30%. Refactored and modularized SQL-driven ETL workflows to optimize query performance and job orchestration, cutting report generation time by 50%. Containerized backend services with Docker and implemented CI/CD pipelines integrated with SVN, while collaborating closely with analytics teams and managing bugs and requirements through Azure DevOps to accelerate iteration and cross-team visibility.
+          </p>
+
+          <!-- <ul class="vt-bullets">
+            <li>Built Java-based automated data-validation pipelines that processed large-scale healthcare portal data using SQL, improving data quality and reducing manual QA effort by ~30%</li>
+            <li>Refactored and modularized SQL-based ETL workflows, optimizing query performance and improving job orchestration, resulting in 50% faster report generation</li>
+            <li>Containerized backend services using Docker and implemented CI/CD pipelines integrated with version control (SVN)</li>
+            <li>Collaborated with analytics teams while tracking bugs and requirements using Azure DevOps, improving iteration speed and cross-team visibility</li>
+          </ul> -->
+        </div>
+
+        <!-- RIGHT: LOGO -->
+        <div class="vt-side vt-logo-side">
+          <img src="assets/deloitte.jpeg" alt="Deloitte logo">
+        </div>
+      </article>
+
+      <!-- ===================== EXPERIENCE 3 ===================== -->
+      <article class="vt-item left">
+        <span class="vt-dot" aria-hidden="true"></span>
+
+        <!-- LEFT: LOGO -->
+        <div class="vt-side vt-logo-side">
+          <img src="assets/jio.png" alt="Reliance Jio logo">
+        </div>
+
+        <!-- RIGHT: CONTENT -->
+        <div class="vt-card">
+          <div class="vt-date">June 2022 – October 2022</div>
+          <div class="vt-role">Quality Analyst Intern</div>
+          <div class="vt-org">Reliance Jio, India</div>
+
+          <p class="vt-desc">
+            Executed and maintained 1,000+ functional and regression test cases across consumer-facing applications, increasing pre-release defect detection by 35%. Led UAT efforts on live releases to identify critical issues early, reducing post-production defects by approximately 40%. Documented test logs, regression reports, and tracked defects using Azure DevOps to ensure release quality and traceability.
+          </p>
+
+          <!-- <ul class="vt-bullets">
+            <li>Authored and executed 1,000+ functional test cases, improving defect detection by 35%</li>
+            <li>Conducted UAT on live releases, reducing post-production issues by ~40%</li>
+            <li>Maintained test logs, regression reports, and defect tracking via Azure DevOps</li>
+          </ul> -->
+        </div>
+      </article>
+
+      <!-- ===================== EXPERIENCE 4 ===================== -->
+      <article class="vt-item right">
+        <span class="vt-dot" aria-hidden="true"></span>
+
+        <!-- LEFT: CONTENT -->
+        <div class="vt-card">
+          <div class="vt-date">March 2021 – August 2021</div>
+          <div class="vt-role">Software Engineering Intern</div>
+          <div class="vt-org">Levyne Tech, India</div>
+
+          <p class="vt-desc">
+            Developed and integrated Python-based REST APIs with PostgreSQL to support business operations and power React-based UI workflows. Improved system throughput by 25% through query optimization, caching, and connection pooling. Delivered well-documented, unit-tested endpoints in Agile sprints, ensuring reliability, maintainability, and smooth frontend–backend integration.
+          </p>
+
+          <!-- <ul class="vt-bullets">
+            <li>Designed Python REST APIs integrated with PostgreSQL and React UIs</li>
+            <li>Optimized query performance through caching and connection pooling, improving throughput by 25%</li>
+            <li>Delivered documented and unit-tested endpoints in Agile sprints</li>
+          </ul> -->
+        </div>
+
+        <!-- RIGHT: LOGO -->
+        <div class="vt-side vt-logo-side">
+          <img src="assets/levyne.png" alt="Levyne Tech logo">
+        </div>
+      </article>
+
     </div>
   </div>
 
+  <div class="section-divider container"></div>
+</section>
+
+
+
+  <!-- EDUCATION -->
+  <section id="education" class="section">
+    <div class="container reveal">
+      <h2 class="section-title">EDUCATION</h2>
+      <p class="section-lead">Academic foundation in information science and computer engineering.</p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-role">MS in Information Management</div>
+            <div class="timeline-org">University of Illinois Urbana-Champaign</div>
+            <div class="timeline-meta">Expected 2026</div>
+          </div>
+          <div class="timeline-right">
+            <ul>
+              <li>Focused on data analytics, product development, and applied systems design.</li>
+              <li>Built real-world projects across APIs, dashboards, and full-stack applications.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-role">B.Tech in Information Technology</div>
+            <div class="timeline-org">KJ Somaiya College of Engineering (KJSCE)</div>
+            <div class="timeline-meta">CGPI 8.40 / 10</div>
+          </div>
+          <div class="timeline-right">
+            <ul>
+              <li>Strong foundation in programming, databases, and software engineering principles.</li>
+              <li>Developed full-stack, database-backed systems through academic and team projects.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-divider container"></div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section">
+    <div class="container reveal">
+      <h2 class="section-title">SKILLS</h2>
+      <p class="section-lead">Tools and technologies I’ve used across internships, coursework, and real projects.</p>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Languages</h3>
+          <div class="chips">
+            <span>Python</span><span>Java</span><span>R</span><span>JavaScript</span><span>HTML</span><span>CSS</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>Frameworks</h3>
+          <div class="chips">
+            <span>FastAPI</span><span>React</span><span>Angular</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>Data</h3>
+          <div class="chips">
+            <span>SQL</span><span>MySQL</span><span>Oracle</span><span>Tableau</span><span>Excel</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>Cloud / Tools</h3>
+          <div class="chips">
+            <span>AWS S3</span><span>Git/GitHub</span><span>Docker</span><span>Figma</span><span>Overleaf</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>Certifications</h3>
+          <div class="chips">
+            <span>Google UX Design</span><span>Python Bootcamp</span><span>Scrum Agile Basics</span><span>Responsive Web Design</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>Strengths</h3>
+          <div class="chips">
+            <span>Fast Learner</span><span>Communication</span><span>Ownership</span><span>Leadership</span><span>Teamwork</span><span>Problem Solving</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-divider container"></div>
+  </section>
+
+  <!-- LEADERSHIP -->
+  <section id="leadership" class="section">
+    <div class="container reveal">
+      <h2 class="section-title">LEADERSHIP</h2>
+      <p class="section-lead">Leadership roles and impact across student orgs and community initiatives.</p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-role">Public Relations Head</div>
+            <div class="timeline-org">Digital risk office UIUC</div>
+            <div class="timeline-meta">Led communications + outreach</div>
+          </div>
+          <div class="timeline-right">
+            <ul>
+              <li>Support knowledge transfer sessions and onboarding for new team members in the Digital Risk Office.</li>
+              <li>Contribute to documentation and process clarity to maintain continuity across rotating student teams.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-role">Public Relations Head</div>
+            <div class="timeline-org">Deloitte</div>
+            <div class="timeline-meta">Led communications + outreach</div>
+          </div>
+          <div class="timeline-right">
+            <ul>
+              <li>Conducted knowledge transfer sessions and supported onboarding of new teammates to ensure smooth project ramp-up.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-role">Public Relations Head</div>
+            <div class="timeline-org">Levyne Tech</div>
+            <div class="timeline-meta">Led communications + outreach</div>
+          </div>
+          <div class="timeline-right">
+            <ul>
+              <li>Led a team of 5 engineers, overseeing backend development, task delegation, and sprint execution.</li>
+              <li>Reviewed code, coordinated releases, and ensured alignment between backend APIs and frontend workflows.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-role">Public Relations Head</div>
+            <div class="timeline-org">Dramatics Team</div>
+            <div class="timeline-meta">Led communications + outreach</div>
+          </div>
+          <div class="timeline-right">
+            <ul>
+              <li>Led the university dramatics team for 2 years, overseeing planning, coordination, and execution of performances and events.</li>
+              <li>Owned public-facing communications, promotions, and outreach to improve visibility and participation.</li>
+              <li>Worked cross-functionally with performers and organizers to align creative direction with timelines.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-role">Vice President</div>
+            <div class="timeline-org">RAV Interact Club</div>
+            <div class="timeline-meta">Community + service leadership</div>
+          </div>
+          <div class="timeline-right">
+            <ul>
+              <li>Led planning and coordination for service initiatives and internal operations.</li>
+              <li>Supported team execution and consistent communication across members.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-divider container"></div>
+  </section>
+
+  <!-- EXTRA-CURRICULAR -->
+  <section id="extracurricular" class="section">
+    <div class="container reveal">
+      <h2 class="section-title">EXTRA-CURRICULAR</h2>
+      <p class="section-lead">Activities that shaped how I work: collaboration, creativity, and community.</p>
+
+      <div class="card-grid">
+        <article class="card hoverable">
+          <div class="card-top">
+            <div class="pill">Accessibility</div>
+            <div class="stars">★★★★★</div>
+          </div>
+          <h3>Accessibility & Digital Risk (UIUC)</h3>
+          <p>
+            Work on improving accessibility of university documents to ensure compliance and inclusive access.
+          </p>
+          <div class="tags">
+            <span>Accessibility</span><span>Compliance</span><span>Documentation</span>
+          </div>
+        </article>
+
+        <article class="card hoverable">
+          <div class="card-top">
+            <div class="pill">Dramatics</div>
+            <div class="stars">★★★★★</div>
+          </div>
+          <h3>Team Rhapsody - Somaiya Vidyavihar University, India</h3>
+          <p>
+            Active member of the university dramatics team for 4 years, participating in performances, competitions, and team-led productions.
+          </p>
+          <div class="tags">
+            <span>Teamwork</span><span>Creativity</span><span>Performance</span>
+          </div>
+        </article>
+
+        <article class="card hoverable">
+          <div class="card-top">
+            <div class="pill">Volunteering</div>
+            <div class="stars">★★★★★</div>
+          </div>
+          <h3>Y4D Foundation</h3>
+          <p>Worked on youth education initiatives, supporting planning, coordination, and on-ground execution.</p>
+          <div class="tags"><span>Community</span><span>Education</span><span>Impact</span></div>
+        </article>
+
+        <article class="card hoverable">
+          <div class="card-top">
+            <div class="pill">Advocacy</div>
+            <div class="stars">★★★★★</div>
+          </div>
+          <h3>Social Media Awareness</h3>
+          <p>Contributed to awareness initiatives supporting transgender rights.</p>
+          <div class="tags"><span>Awareness</span><span>Communication</span><span>Outreach</span></div>
+        </article>
+
+        <article class="card hoverable">
+          <div class="card-top">
+            <div class="pill">Hobby</div>
+            <div class="stars">★★★★★</div>
+          </div>
+          <h3>Me Time shenanigans</h3>
+          <p>
+            Enjoy cooking and experimenting with multiple cuisines; have participated in and won several cooking competitions.
+          </p>
+          <div class="tags">
+            <span>Cooking</span><span>Creativity</span><span>Competitions</span>
+          </div>
+        </article>
+
+        <article class="card card-metric hoverable">
+          <div class="metric-caption">Team-first mindset</div>
+          <div class="metric-big">5+</div>
+          <div class="metric-sub">Leadership / org roles</div>
+        </article>
+      </div>
+    </div>
+
+    <div class="section-divider container"></div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="container contact-grid reveal">
+      <div class="contact-left">
+        <div class="contact-card">
+          <img src="assets/image.jpeg" alt="Portrait" draggable="false" />
+        </div>
+
+        <button class="hand-badge hand-badge--contact hoverable" type="button" aria-label="Hi">
+          <span aria-hidden="true">Hi!</span>
+        </button>
+      </div>
+
+      <div class="contact-right">
+        <h2 class="section-title">LET'S WORK TOGETHER</h2>
+        <p class="section-lead">
+          Want to collaborate on a project, internship, or a data / full-stack build? Send a note.
+        </p>
+
+        <form
+  class="form"
+  action="https://formspree.io/f/mqebklwq"
+  method="POST"
+>
+  <div class="form-row">
+    <label class="field">
+      <span>Name</span>
+      <input type="text" name="name" placeholder="Your name" required />
+    </label>
+
+    <label class="field">
+      <span>Email</span>
+      <input type="email" name="email" placeholder="your@email.com" required />
+    </label>
+  </div>
+
+  <label class="field">
+    <span>Service Needed?</span>
+    <select name="service" required>
+      <option value="" disabled selected>Select...</option>
+      <option value="Project Collaboration">Project Collaboration</option>
+      <option value="Internship">Internship</option>
+      <option value="Data / Analytics">Data / Analytics</option>
+      <option value="Full-Stack Build">Full-stack build</option>
+      <option value="Other">Other</option>
+    </select>
+  </label>
+
+  <label class="field">
+    <span>What can I help you with?</span>
+    <textarea
+      name="message"
+      rows="6"
+      placeholder="Tell me about what you want to build…"
+      required
+    ></textarea>
+  </label>
+
+  <!-- spam trap (leave it hidden) -->
+  <input type="text" name="_gotcha" style="display:none" />
+
+  <!-- optional: subject line in the email you receive -->
+  <input type="hidden" name="_subject" value="New message from dipalthaker.github.io" />
+
+  <button class="btn-solid btn-submit" type="submit">Submit</button>
+</form>
+
+      </div>
+    </div>
+
+    <footer class="footer container">
+      <div>© <span id="year"></span> Dipal Thaker</div>
+      <div class="footer-links">
+        <a class="hoverable" href="#home">Top</a>
+        <a class="hoverable" href="#projects">Projects</a>
+        <a class="hoverable" href="#contact">Contact</a>
+      </div>
+    </footer>
+  </section>
+
+  <script src="js/main.js" defer></script>
 </body>
 </html>

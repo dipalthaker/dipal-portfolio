@@ -21,207 +21,146 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `.slide {
-  min-width: 100%;
-  padding: 3rem 2rem;
-  background: linear-gradient(180deg, rgba(124, 58, 237, 0.14), rgba(86, 182, 194, 0.12));
+___CSS_LOADER_EXPORT___.push([module.id, `:root {
+  --cream: #f8f6d8;
+  --olive: #b9bd82;
+  --dark: #262b00;
 }
 
-.slide h3 {
-  margin: 0 0 0.5rem;
+* {
+  box-sizing: border-box;
 }
 
-.slide p {
+body {
   margin: 0;
-  color: #94a3b8;
+  font-family: Inter, sans-serif;
+  background: var(--cream);
+  color: #222;
+  scroll-behavior: smooth;
 }
 
-.carousel-control {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.35);
-  border: 0;
-  color: white;
-  width: 44px;
-  height: 44px;
+h1, h2, h3 {
+  font-family: "DM Serif Display", serif;
+}
+
+.section {
+  min-height: 100vh;
+  padding: 6rem;
+  display: flex;
+  align-items: center;
+}
+
+.fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* NAV */
+.navbar {
+  position: sticky;
+  top: 0;
+  background: var(--cream);
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem 4rem;
+  z-index: 100;
+}
+
+.nav-right a {
+  margin-left: 2rem;
+  text-decoration: none;
+  color: #222;
+}
+
+.nav-right .cta {
+  background: var(--dark);
+  color: #fff;
+  padding: 0.5rem 1.2rem;
   border-radius: 999px;
+}
+
+/* HERO */
+.hero {
   display: grid;
-  place-items: center;
-  cursor: pointer;
+  grid-template-columns: 1fr 1fr;
 }
 
-.carousel-control.prev {
-  left: 0.75rem;
+.hero-image img {
+  width: 100%;
+  border-radius: 60px;
 }
 
-.carousel-control.next {
-  right: 0.75rem;
+/* APPROACH */
+.approach {
+  background: #fbfadf;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
-.parallax {
-  background-image: url("https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=2000&auto=format&fit=crop");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  position: relative;
+.approach img {
+  width: 100%;
 }
 
-.parallax .parallax-inner {
-  background: rgba(0, 0, 0, 0.35);
-  min-height: 60vh;
+/* METRICS */
+.metrics {
+  background: var(--dark);
+  color: #fff;
+  justify-content: space-around;
 }
 
-.parallax .overlay {
-  font-size: clamp(1.75rem, 3vw + 1rem, 3rem);
-}
-
-.cards {
+/* CARDS */
+.card-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .card {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--olive);
+  padding: 2.5rem;
+  border-radius: 40px;
+}
+
+.card.dark {
+  background: #d6dab2;
+}
+
+/* CONTACT */
+.contact-form {
+  background: var(--olive);
+  padding: 3rem;
+  border-radius: 60px;
+  width: 70%;
+}
+
+.contact-form input {
+  width: 100%;
   padding: 1rem;
-  border-radius: 16px;
-}
-
-.card h3 {
-  margin-top: 0;
-}
-
-.card p {
-  color: #94a3b8;
-}
-
-.video video {
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.social {
-  display: flex;
-  gap: 0.75rem;
-  list-style: none;
-  padding: 0;
-}
-
-.social a {
-  display: inline-grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
-  color: #e9eef5;
-  text-decoration: none;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: none;
+  margin-bottom: 1rem;
 }
 
-.footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+.contact-form .row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
 }
 
-.footer .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.back-to-top {
-  color: #e9eef5;
-  text-decoration: none;
-  background: rgba(255, 255, 255, 0.06);
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-}
-
-.modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  display: none;
-  align-items: center;
-  justify-content: center;
+.contact-form button {
+  width: 100%;
   padding: 1rem;
-}
-
-.modal[aria-hidden=false] {
-  display: flex;
-}
-
-.modal-dialog {
-  width: min(560px, 96vw);
-  background: #0e141b;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  padding: 1.25rem 1.25rem 1rem;
-  position: relative;
-}
-
-.modal-close {
-  position: absolute;
-  right: 0.5rem;
-  top: 0.5rem;
-  background: none;
-  border: 0;
-  color: #e9eef5;
-  font-size: 1.25rem;
-  cursor: pointer;
-}
-
-@media (max-width: 1280px) {
-  .about .columns {
-    -moz-column-count: 2;
-         column-count: 2;
-  }
-}
-@media (max-width: 1024px) {
-  .cards {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-@media (max-width: 768px) {
-  .navbar {
-    height: 56px;
-  }
-
-  .nav-toggle {
-    display: inline-grid;
-  }
-
-  .nav-links {
-    position: absolute;
-    right: 1rem;
-    top: calc(100% + .5rem);
-    background: #0e141b;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 0.75rem;
-    padding: 0.5rem;
-    display: none;
-    flex-direction: column;
-  }
-
-  .nav-links.open {
-    display: flex;
-  }
-
-  .about .columns {
-    -moz-column-count: 1;
-         column-count: 1;
-  }
-
-  .cards {
-    grid-template-columns: 1fr;
-  }
-}
-:focus {
-  outline: 3px solid #56b6c2;
-  outline-offset: 2px;
-}`, "",{"version":3,"sources":["webpack://./css/main.scss"],"names":[],"mappings":"AAYA;EAAS,eAAA;EAAiB,kBAAA;EAAoB,uFAAA;AAR9C;;AASA;EAAY,kBAAA;AALZ;;AAMA;EAAW,SAAA;EAAW,cAXd;AAUR;;AAEA;EAAoB,kBAAA;EAAoB,QAAA;EAAU,2BAAA;EAA6B,+BAAA;EAA6B,SAAA;EAAW,YAAA;EAAc,WAAA;EAAa,YAAA;EAAc,oBAAA;EAAsB,aAAA;EAAe,mBAAA;EAAqB,eAAA;AAa1N;;AAZA;EAAyB,aAAA;AAgBzB;;AAfA;EAAyB,cAAA;AAmBzB;;AAfA;EAAY,sHAAA;EAAwH,sBAAA;EAAwB,2BAAA;EAA6B,4BAAA;EAA8B,kBAAA;AAuBvN;;AAtBA;EAA4B,+BAAA;EAA6B,gBAAA;AA2BzD;;AA1BA;EAAqB,2CAAA;AA8BrB;;AA1BA;EAAS,aAAA;EAAe,qCAAA;EAAuC,SAAA;AAgC/D;;AA/BA;EAAQ,yFAAA;EAAmF,2CAAA;EAAyC,aAAA;EAAe,mBAAA;AAsCnJ;;AArCA;EAAW,aAAA;AAyCX;;AAxCA;EAAU,cA3BF;AAuER;;AAxCA;EAAe,mBAAA;EAAqB,2CAAA;AA6CpC;;AAzCA;EAAU,aAAA;EAAe,YAAA;EAAa,gBAAA;EAAkB,UAAA;AAgDxD;;AA/CA;EAAY,oBAAA;EAAsB,mBAAA;EAAqB,WAAA;EAAa,YAAA;EAAc,oBAAA;EAAsB,qCAAA;EAAmC,cArCrI;EAqCkJ,qBAAA;EAAuB,0CAAA;AA2D/K;;AAvDA;EAAU,+CAAA;AA2DV;;AA1DA;EAAqB,aAAA;EAAe,mBAAA;EAAqB,8BAAA;AAgEzD;;AA/DA;EAAe,cA3CT;EA2CsB,qBAAA;EAAuB,qCAAA;EAAmC,eAAA;EAAgB,qBAAA;AAuEtG;;AAnEA;EAAS,eAAA;EAAiB,QAAA;EAAU,+BAAA;EAA6B,aAAA;EAAe,mBAAA;EAAqB,uBAAA;EAAyB,aAAA;AA6E9H;;AA5EA;EAA8B,aAAA;AAgF9B;;AA/EA;EAAgB,uBAAA;EAAyB,mBAAA;EAAqB,2CAAA;EAAyC,mBAAA;EAAqB,6BAAA;EAA+B,kBAAA;AAwF3J;;AAvFA;EAAe,kBAAA;EAAoB,aAAA;EAAc,WAAA;EAAY,gBAAA;EAAkB,SAAA;EAAW,cAlDpF;EAkDiG,kBAAA;EAAoB,eAAA;AAkG3H;;AA9FA;EACA;IAAkB,oBAAA;SAAA,eAAA;EAkGhB;AACF;AAjGA;EACA;IAAS,8BAAA;EAoGP;AACF;AAnGA;EACA;IAAU,YAvDA;EA6JR;;EArGF;IAAc,oBAAA;EAyGZ;;EAxGF;IAAa,kBAAA;IAAoB,WAAA;IAAa,uBAAA;IAAyB,mBAAA;IAAqB,2CAAA;IAAyC,sBAAA;IAAuB,eAAA;IAAgB,aAAA;IAAe,sBAAA;EAoHzL;;EAnHF;IAAkB,aAAA;EAuHhB;;EAtHF;IAAkB,oBAAA;SAAA,eAAA;EA0HhB;;EAzHF;IAAS,0BAAA;EA6HP;AACF;AAzHA;EAAS,0BAAA;EAA4B,mBAAA;AA6HrC","sourcesContent":["// Variables\n$bg: #0b0f14;\n$ink: #e9eef5;\n$muted: #94a3b8;\n$accent: #56b6c2;\n$accent-2: #7c3aed;\n$maxw: 1100px;\n$navH-lg: 84px;\n$navH-sm: 56px;\n\n\n// SCSS features: variables, mixins, nesting, functions\n.slide { min-width: 100%; padding: 3rem 2rem; background: linear-gradient(180deg, rgba(124,58,237,.14), rgba(86,182,194,.12)); }\n.slide h3 { margin: 0 0 .5rem; }\n.slide p { margin: 0; color: $muted; }\n.carousel-control { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,.35); border: 0; color: white; width: 44px; height: 44px; border-radius: 999px; display: grid; place-items: center; cursor: pointer; }\n.carousel-control.prev { left: .75rem; }\n.carousel-control.next { right: .75rem; }\n\n\n// PARALLAX – fixed background (requirement #10)\n.parallax { background-image: url('https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=2000&auto=format&fit=crop'); background-size: cover; background-position: center; background-attachment: fixed; position: relative; }\n.parallax .parallax-inner { background: rgba(0,0,0,.35); min-height: 60vh; }\n.parallax .overlay { font-size: clamp(1.75rem, 3vw + 1rem, 3rem); }\n\n\n// EXPERIENCE – cards\n.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }\n.card { background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border: 1px solid rgba(255,255,255,.08); padding: 1rem; border-radius: 16px; }\n.card h3 { margin-top: 0; }\n.card p { color: $muted; }\n\n\n// VIDEO stripe (simple)\n.video video { border-radius: 16px; border: 1px solid rgba(255,255,255,.08); }\n\n\n// CONTACT – social icons (requirements #14, #15)\n.social { display: flex; gap: .75rem; list-style: none; padding: 0; }\n.social a { display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; background: rgba(255,255,255,.06); color: $ink; text-decoration: none; border: 1px solid rgba(255,255,255,.1); }\n\n\n// FOOTER\n.footer { border-top: 1px solid rgba(255,255,255,.08); }\n.footer .container { display: flex; align-items: center; justify-content: space-between; }\n.back-to-top { color: $ink; text-decoration: none; background: rgba(255,255,255,.06); padding: .5rem; border-radius: .5rem; }\n\n\n// MODAL (requirement #11)\n.modal { position: fixed; inset: 0; background: rgba(0,0,0,.55); display: none; align-items: center; justify-content: center; padding: 1rem; }\n.modal[aria-hidden=\"false\"] { display: flex; }\n.modal-dialog { width: min(560px, 96vw); background: #0e141b; border: 1px solid rgba(255,255,255,.08); border-radius: 16px; padding: 1.25rem 1.25rem 1rem; position: relative; }\n.modal-close { position: absolute; right: .5rem; top: .5rem; background: none; border: 0; color: $ink; font-size: 1.25rem; cursor: pointer; }\n\n\n// RESPONSIVE breakpoints (requirement #9)\n@media (max-width: 1280px) {\n.about .columns { column-count: 2; }\n}\n@media (max-width: 1024px) {\n.cards { grid-template-columns: 1fr 1fr; }\n}\n@media (max-width: 768px) {\n.navbar { height: $navH-sm; }\n.nav-toggle { display: inline-grid; }\n.nav-links { position: absolute; right: 1rem; top: calc(100% + .5rem); background: #0e141b; border: 1px solid rgba(255,255,255,.08); border-radius: .75rem; padding: .5rem; display: none; flex-direction: column; }\n.nav-links.open { display: flex; }\n.about .columns { column-count: 1; }\n.cards { grid-template-columns: 1fr; }\n}\n\n\n// Accessibility focus styles\n:focus { outline: 3px solid $accent; outline-offset: 2px; }"],"sourceRoot":""}]);
+  border-radius: 999px;
+  background: var(--dark);
+  color: #fff;
+  border: none;
+}`, "",{"version":3,"sources":["webpack://./css/main.scss"],"names":[],"mappings":"AAAA;EACE,gBAAA;EACA,gBAAA;EACA,eAAA;AACF;;AAEA;EACE,sBAAA;AACF;;AAEA;EACE,SAAA;EACA,8BAAA;EACA,wBAAA;EACA,WAAA;EACA,uBAAA;AACF;;AAEA;EACE,sCAAA;AACF;;AAEA;EACE,iBAAA;EACA,aAAA;EACA,aAAA;EACA,mBAAA;AACF;;AAEA;EACE,UAAA;EACA,2BAAA;EACA,yBAAA;AACF;;AAEA;EACE,UAAA;EACA,wBAAA;AACF;;AAEA,QAAA;AACA;EACE,gBAAA;EACA,MAAA;EACA,wBAAA;EACA,aAAA;EACA,8BAAA;EACA,oBAAA;EACA,YAAA;AACF;;AAEA;EACE,iBAAA;EACA,qBAAA;EACA,WAAA;AACF;;AAEA;EACE,uBAAA;EACA,WAAA;EACA,sBAAA;EACA,oBAAA;AACF;;AAEA,SAAA;AACA;EACE,aAAA;EACA,8BAAA;AACF;;AAEA;EACE,WAAA;EACA,mBAAA;AACF;;AAEA,aAAA;AACA;EACE,mBAAA;EACA,aAAA;EACA,8BAAA;AACF;;AAEA;EACE,WAAA;AACF;;AAEA,YAAA;AACA;EACE,uBAAA;EACA,WAAA;EACA,6BAAA;AACF;;AAEA,UAAA;AACA;EACE,aAAA;EACA,qCAAA;EACA,SAAA;AACF;;AAEA;EACE,wBAAA;EACA,eAAA;EACA,mBAAA;AACF;;AAEA;EACE,mBAAA;AACF;;AAEA,YAAA;AACA;EACE,wBAAA;EACA,aAAA;EACA,mBAAA;EACA,UAAA;AACF;;AAEA;EACE,WAAA;EACA,aAAA;EACA,oBAAA;EACA,YAAA;EACA,mBAAA;AACF;;AAEA;EACE,aAAA;EACA,8BAAA;EACA,SAAA;AACF;;AAEA;EACE,WAAA;EACA,aAAA;EACA,oBAAA;EACA,uBAAA;EACA,WAAA;EACA,YAAA;AACF","sourcesContent":[":root {\n  --cream: #f8f6d8;\n  --olive: #b9bd82;\n  --dark: #262b00;\n}\n\n* {\n  box-sizing: border-box;\n}\n\nbody {\n  margin: 0;\n  font-family: Inter, sans-serif;\n  background: var(--cream);\n  color: #222;\n  scroll-behavior: smooth;\n}\n\nh1, h2, h3 {\n  font-family: \"DM Serif Display\", serif;\n}\n\n.section {\n  min-height: 100vh;\n  padding: 6rem;\n  display: flex;\n  align-items: center;\n}\n\n.fade {\n  opacity: 0;\n  transform: translateY(30px);\n  transition: all 0.8s ease;\n}\n\n.fade.visible {\n  opacity: 1;\n  transform: translateY(0);\n}\n\n/* NAV */\n.navbar {\n  position: sticky;\n  top: 0;\n  background: var(--cream);\n  display: flex;\n  justify-content: space-between;\n  padding: 1.5rem 4rem;\n  z-index: 100;\n}\n\n.nav-right a {\n  margin-left: 2rem;\n  text-decoration: none;\n  color: #222;\n}\n\n.nav-right .cta {\n  background: var(--dark);\n  color: #fff;\n  padding: 0.5rem 1.2rem;\n  border-radius: 999px;\n}\n\n/* HERO */\n.hero {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n}\n\n.hero-image img {\n  width: 100%;\n  border-radius: 60px;\n}\n\n/* APPROACH */\n.approach {\n  background: #fbfadf;\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n}\n\n.approach img {\n  width: 100%;\n}\n\n/* METRICS */\n.metrics {\n  background: var(--dark);\n  color: #fff;\n  justify-content: space-around;\n}\n\n/* CARDS */\n.card-grid {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 2rem;\n}\n\n.card {\n  background: var(--olive);\n  padding: 2.5rem;\n  border-radius: 40px;\n}\n\n.card.dark {\n  background: #d6dab2;\n}\n\n/* CONTACT */\n.contact-form {\n  background: var(--olive);\n  padding: 3rem;\n  border-radius: 60px;\n  width: 70%;\n}\n\n.contact-form input {\n  width: 100%;\n  padding: 1rem;\n  border-radius: 999px;\n  border: none;\n  margin-bottom: 1rem;\n}\n\n.contact-form .row {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 1rem;\n}\n\n.contact-form button {\n  width: 100%;\n  padding: 1rem;\n  border-radius: 999px;\n  background: var(--dark);\n  color: #fff;\n  border: none;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -365,6 +304,42 @@ module.exports = function (item) {
   }
 
   return [content].join("\n");
+};
+
+/***/ }),
+
+/***/ "../node_modules/html-loader/dist/runtime/getUrl.js":
+/*!**********************************************************!*\
+  !*** ../node_modules/html-loader/dist/runtime/getUrl.js ***!
+  \**********************************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+module.exports = function (url, options) {
+  if (!options) {
+    // eslint-disable-next-line no-param-reassign
+    options = {};
+  }
+
+  if (!url) {
+    return url;
+  } // eslint-disable-next-line no-underscore-dangle, no-param-reassign
+
+
+  url = String(url.__esModule ? url.default : url);
+
+  if (options.hash) {
+    // eslint-disable-next-line no-param-reassign
+    url += options.hash;
+  }
+
+  if (options.maybeNeedQuotes && /[\t\n\f\r "'=<>`]/.test(url)) {
+    return "\"".concat(url, "\"");
+  }
+
+  return url;
 };
 
 /***/ }),
@@ -642,6 +617,17 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
+/***/ "./assets/image.jpg":
+/*!**************************!*\
+  !*** ./assets/image.jpg ***!
+  \**************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "f7c3d1bc154868c1bcc8.jpg";
+
+/***/ }),
+
 /***/ "./css/main.scss":
 /*!***********************!*\
   !*** ./css/main.scss ***!
@@ -708,8 +694,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/html-loader/dist/runtime/getUrl.js */ "../node_modules/html-loader/dist/runtime/getUrl.js");
+/* harmony import */ var _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___HTML_LOADER_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ./assets/image.jpg */ "./assets/image.jpg"), __webpack_require__.b);
+var ___HTML_LOADER_IMPORT_1___ = new URL(/* asset import */ Object(function webpackMissingModule() { var e = new Error("Cannot find module './bundle.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), __webpack_require__.b);
 // Module
-var code = "<!DOCTYPE html>\n<div class=\"cards\">\n<article class=\"card\">\n<h3>Deloitte USI — Analyst</h3>\n<p>Data analysis, test planning, and backend investigations for the State of Wyoming project.\n</p>\n<button class=\"btn-sm\" data-open-modal=\"#expModal\">More</button>\n</article>\n<article class=\"card\">\n<h3>Reliance Jio — Quality Analyst</h3>\n<p>Automation testing and QA for consumer‑facing products at scale.</p>\n</article>\n<article class=\"card\">\n<h3>Levyne Tech — SWE Intern</h3>\n<p>Built features across the stack; strengthened JS/Java and CI habits.</p>\n</article>\n</div>\n</div>\n</section>\n\n\n<!-- VIDEO (requirement #12) -->\n<section id=\"video\" class=\"stripe video\" aria-label=\"Video\">\n<div class=\"container\">\n<h2>Showreel</h2>\n<video controls preload=\"metadata\" poster=\"https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217\" width=\"100%\">\n<source src=\"https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4\" type=\"video/mp4\">\nYour browser does not support the HTML5 video tag.\n</video>\n</div>\n</section>\n\n\n<!-- CONTACT + SOCIAL (requirements #14 and #15) -->\n<section id=\"contact\" class=\"stripe contact\" aria-label=\"Contact\">\n<div class=\"container\">\n<h2>Contact</h2>\n<p>Let’s connect!</p>\n<ul class=\"social\">\n<li><a href=\"mailto:dthaker2@illinois.edu\" aria-label=\"Email\"><i class=\"fa-solid fa-envelope\"></i></a></li>\n<li><a href=\"https://github.com/dipalthaker\" target=\"_blank\" rel=\"noopener\" aria-label=\"GitHub\"><i class=\"fa-brands fa-github\"></i></a></li>\n<li><a href=\"https://www.linkedin.com/in/dipalthaker\" target=\"_blank\" rel=\"noopener\" aria-label=\"LinkedIn\"><i class=\"fa-brands fa-linkedin\"></i></a></li>\n<li><a href=\"#\" aria-label=\"Twitter\"><i class=\"fa-brands fa-x-twitter\"></i></a></li>\n</ul>\n</div>\n</section>\n\n\n<!-- FOOTER -->\n<footer class=\"stripe footer\" aria-label=\"Footer\">\n<div class=\"container\">\n<p>© <span id=\"year\"></span> Dipal Thaker • Built for MP1</p>\n<a href=\"#top\" class=\"back-to-top\" aria-label=\"Back to top\"><i class=\"fa-solid fa-arrow-up\"></i></a>\n</div>\n</footer>\n\n\n<!-- MODALS (requirement #11) -->\n<div id=\"introModal\" class=\"modal\" aria-hidden=\"true\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"introTitle\">\n<div class=\"modal-dialog\" role=\"document\">\n<button class=\"modal-close\" data-close-modal aria-label=\"Close modal\"><i class=\"fa-solid fa-xmark\"></i></button>\n<h3 id=\"introTitle\">Quick Intro</h3>\n<p>Thanks for visiting! This site demonstrates the required MP1 features with accessible, library‑free\nHTML, SCSS, and vanilla JS.</p>\n</div>\n</div>\n\n\n<div id=\"expModal\" class=\"modal\" aria-hidden=\"true\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"expTitle\">\n<div class=\"modal-dialog\" role=\"document\">\n<button class=\"modal-close\" data-close-modal aria-label=\"Close modal\"><i class=\"fa-solid fa-xmark\"></i></button>\n<h3 id=\"expTitle\">Deloitte Analyst – Details</h3>\n<ul>\n<li>Income checkbox analysis; test case design</li>\n<li>Database/code analysis; issue triage</li>\n<li>Cross‑functional collaboration and documentation</li>\n</ul>\n</div>\n</div>\n</body>\n</html>";
+var ___HTML_LOADER_REPLACEMENT_0___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_0___);
+var ___HTML_LOADER_REPLACEMENT_1___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_1___);
+var code = "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <title>Dipal Thaker</title>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n  \n    <!-- Fonts -->\n    <link href=\"https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600&display=swap\" rel=\"stylesheet\">\n  </head>\n  \n\n<body>\n\n<!-- NAVBAR -->\n<header class=\"navbar\">\n  <div class=\"nav-left\">Dipal</div>\n  <nav class=\"nav-right\">\n    <a href=\"#projects\">Projects</a>\n    <a href=\"#experience\">Experience</a>\n    <a href=\"#contact\" class=\"cta\">Let’s Talk</a>\n  </nav>\n</header>\n\n<!-- HERO -->\n<section class=\"section hero fade\">\n  <div class=\"hero-text\">\n    <h1>Hey, I’m Dipal.</h1>\n    <p>\n      I build reliable, data-driven software systems with clean engineering,\n      scalable architecture, and thoughtful UX.\n    </p>\n    <a href=\"#projects\" class=\"btn\">View My Work</a>\n  </div>\n\n  <div class=\"hero-image\">\n    <img src=\"" + ___HTML_LOADER_REPLACEMENT_0___ + "\" alt=\"Hero image\" />\n  </div>\n</section>\n\n<!-- APPROACH -->\n<section class=\"section approach fade\">\n  <div class=\"approach-image\">\n    <img src=\"" + ___HTML_LOADER_REPLACEMENT_0___ + "\" alt=\"Workspace\" />\n  </div>\n\n  <div class=\"approach-text\">\n    <h2>My Approach</h2>\n\n    <h3>Collaborative</h3>\n    <p>\n      I work closely with stakeholders to understand constraints, align on goals,\n      and translate complexity into usable systems.\n    </p>\n\n    <h3>Iterative</h3>\n    <p>\n      I build incrementally, validate early, and refine continuously to ensure\n      maintainability and long-term success.\n    </p>\n  </div>\n</section>\n\n<!-- METRICS -->\n<section class=\"section metrics fade\">\n  <div class=\"metric\">\n    <h3>5+</h3>\n    <p>Major Systems Built</p>\n  </div>\n  <div class=\"metric\">\n    <h3>3+</h3>\n    <p>Years Engineering Experience</p>\n  </div>\n  <div class=\"metric\">\n    <h3>100+</h3>\n    <p>Users Impacted</p>\n  </div>\n</section>\n\n<!-- PROJECTS -->\n<section class=\"section projects fade\" id=\"projects\">\n  <h2>Case Studies</h2>\n\n  <div class=\"card-grid\">\n    <div class=\"card\">\n      <h3>Job Application Tracker</h3>\n      <p>\n        Secure full-stack platform to manage 100+ job applications with structured workflows.\n      </p>\n    </div>\n\n    <div class=\"card\">\n      <h3>Market Data Microservice</h3>\n      <p>\n        Event-driven system achieving sub-500ms latency using Kafka and FastAPI.\n      </p>\n    </div>\n\n    <div class=\"card\">\n      <h3>F1 Race Outcome Prediction</h3>\n      <p>\n        ML + Monte Carlo simulations for probabilistic race outcomes and scenario analysis.\n      </p>\n    </div>\n  </div>\n</section>\n\n<!-- EXPERIENCE -->\n<section class=\"section experience fade\" id=\"experience\">\n  <h2>Experience</h2>\n\n  <div class=\"card-grid\">\n\n    <div class=\"card dark\">\n      <h3>Lead App Developer — UIUC mHealth</h3>\n      <ul>\n        <li>Led development of Flutter mHealth app for 100+ elderly users</li>\n        <li>Designed secure PHI storage with encrypted SQLite</li>\n        <li>Improved engagement by 35% through accessibility-first UI</li>\n      </ul>\n    </div>\n\n    <div class=\"card dark\">\n      <h3>Software Developer — Deloitte USI</h3>\n      <ul>\n        <li>Built Java + SQL data-validation pipelines</li>\n        <li>Reduced QA effort by 30%, reporting latency by 50%</li>\n        <li>Containerized services with Docker & CI/CD</li>\n      </ul>\n    </div>\n\n    <div class=\"card dark\">\n      <h3>Quality Analyst — Reliance Jio</h3>\n      <ul>\n        <li>Authored 1,000+ functional test cases</li>\n        <li>Reduced post-release defects by 40%</li>\n      </ul>\n    </div>\n\n  </div>\n</section>\n\n<!-- CONTACT -->\n<section class=\"section contact fade\" id=\"contact\">\n  <h2>Subscribe for Exclusive Updates</h2>\n\n  <form class=\"contact-form\">\n    <div class=\"row\">\n      <input type=\"text\" placeholder=\"First Name\" required />\n      <input type=\"text\" placeholder=\"Last Name\" required />\n    </div>\n\n    <input type=\"email\" placeholder=\"Email (required)\" required />\n    <button type=\"submit\">Submit</button>\n  </form>\n</section>\n\n<" + "script src=\"" + ___HTML_LOADER_REPLACEMENT_1___ + "\"><" + "/script>\n</body>\n</html>\n";
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (code);
 
@@ -721,213 +715,22 @@ var code = "<!DOCTYPE html>\n<div class=\"cards\">\n<article class=\"card\">\n<h
   \********************/
 /***/ (() => {
 
-function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
-
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-// ===========================
-// Footer year
-// ===========================
-var yearEl = document.getElementById('year');
-if (yearEl) yearEl.textContent = new Date().getFullYear(); // ===========================
-// Mobile nav toggle
-// ===========================
-
-var navToggle = document.querySelector('.nav-toggle');
-var navLinks = document.getElementById('nav-links');
-
-if (navToggle && navLinks) {
-  navToggle.addEventListener('click', function () {
-    var expanded = navToggle.getAttribute('aria-expanded') === 'true';
-    navToggle.setAttribute('aria-expanded', String(!expanded));
-    navLinks.classList.toggle('open');
-  });
-} // ===========================
-// Navbar resize + scroll progress bar
-// ===========================
-
-
-var navbar = document.querySelector('.navbar');
-var progressBar = document.querySelector('.scroll-indicator .bar');
-var shrinkThreshold = 24;
-window.addEventListener('scroll', function () {
-  if (!navbar) return;
-  var y = window.scrollY || window.pageYOffset; // Shrink navbar
-
-  navbar.classList.toggle('shrink', y > shrinkThreshold); // Progress bar
-
-  if (progressBar) {
-    var scrollable = document.documentElement.scrollHeight - window.innerHeight;
-    var pct = scrollable > 0 ? y / scrollable * 100 : 0;
-    progressBar.style.width = "".concat(pct, "%");
-  }
-}); // ===========================
-// Section nav highlight
-// ===========================
-
-var sections = _toConsumableArray(document.querySelectorAll('section[id]'));
-
-var navAnchors = new Map(_toConsumableArray(document.querySelectorAll('a[data-nav]')).map(function (a) {
-  return [a.getAttribute('href').slice(1), a];
-}));
-var observer = new IntersectionObserver(function (entries) {
-  entries.forEach(function (entry) {
-    var id = entry.target.getAttribute('id');
-    var link = navAnchors.get(id);
-    if (!link) return;
-
-    if (entry.isIntersecting) {
-      navAnchors.forEach(function (a) {
-        return a.removeAttribute('aria-current');
-      });
-      link.setAttribute('aria-current', 'true');
-    }
-  });
-}, {
-  rootMargin: "-70px 0px -70% 0px",
-  threshold: 0.1
-});
-sections.forEach(function (sec) {
-  return observer.observe(sec);
-}); // Highlight last nav item at bottom of page
-
-window.addEventListener('scroll', function () {
-  var atBottom = Math.ceil(window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight;
-
-  if (atBottom) {
-    navAnchors.forEach(function (a) {
-      return a.removeAttribute('aria-current');
-    });
-    var last = document.querySelector('a[href="#contact"][data-nav]');
-    if (last) last.setAttribute('aria-current', 'true');
-  }
-}); // ===========================
-// Carousel
-// ===========================
-
-(function () {
-  var root = document.querySelector('[data-carousel]');
-  if (!root) return;
-  var track = root.querySelector('[data-carousel-track]');
-
-  var slides = _toConsumableArray(root.querySelectorAll('.slide'));
-
-  var prev = root.querySelector('[data-carousel-prev]');
-  var next = root.querySelector('[data-carousel-next]');
-  var index = 0;
-
-  function update() {
-    track.style.transform = "translateX(-".concat(index * 100, "%)");
-  }
-
-  prev === null || prev === void 0 ? void 0 : prev.addEventListener('click', function () {
-    index = (index - 1 + slides.length) % slides.length;
-    update();
-  });
-  next === null || next === void 0 ? void 0 : next.addEventListener('click', function () {
-    index = (index + 1) % slides.length;
-    update();
-  }); // Optional swipe support
-
-  var startX = 0;
-  var dx = 0;
-  track.addEventListener('pointerdown', function (e) {
-    startX = e.clientX;
-    dx = 0;
-    track.setPointerCapture(e.pointerId);
-  });
-  track.addEventListener('pointermove', function (e) {
-    if (startX) dx = e.clientX - startX;
-  });
-  track.addEventListener('pointerup', function () {
-    if (Math.abs(dx) > 60) {
-      index = dx < 0 ? (index + 1) % slides.length : (index - 1 + slides.length) % slides.length;
-    }
-
-    update();
-    startX = 0;
-    dx = 0;
-  });
-})(); // ===========================
-// Modals
-// ===========================
-
-
-function openModal(sel) {
-  var m = document.querySelector(sel);
-  if (!m) return;
-  m.setAttribute('aria-hidden', 'false');
-  var dialog = m.querySelector('.modal-dialog');
-  dialog === null || dialog === void 0 ? void 0 : dialog.setAttribute('tabindex', '-1');
-  dialog === null || dialog === void 0 ? void 0 : dialog.focus();
-}
-
-function closeModal(modal) {
-  modal.setAttribute('aria-hidden', 'true');
-}
-
-document.querySelectorAll('[data-open-modal]').forEach(function (btn) {
-  btn.addEventListener('click', function () {
-    return openModal(btn.getAttribute('data-open-modal'));
-  });
-});
-document.querySelectorAll('[data-close-modal]').forEach(function (btn) {
-  btn.addEventListener('click', function () {
-    return closeModal(btn.closest('.modal'));
-  });
-});
-document.querySelectorAll('.modal').forEach(function (m) {
-  m.addEventListener('click', function (e) {
-    if (e.target === m) closeModal(m);
-  });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && m.getAttribute('aria-hidden') === 'false') closeModal(m);
-  });
-}); // ===========================
-// Smooth hash navigation + close mobile menu
-// ===========================
-
-var _iterator = _createForOfIteratorHelper(document.querySelectorAll('a[href^="#"]')),
-    _step;
-
-try {
-  var _loop = function _loop() {
-    var a = _step.value;
-    a.addEventListener('click', function () {
-      var id = a.getAttribute('href').substring(1);
-      var target = document.getElementById(id); // Close mobile menu
-
-      navLinks === null || navLinks === void 0 ? void 0 : navLinks.classList.remove('open');
-      navToggle === null || navToggle === void 0 ? void 0 : navToggle.setAttribute('aria-expanded', 'false'); // Focus target for accessibility
-
-      if (target) {
-        setTimeout(function () {
-          return target.focus({
-            preventScroll: true
-          });
-        }, 350);
+document.addEventListener("DOMContentLoaded", function () {
+  var sections = document.querySelectorAll(".fade");
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
       }
     });
-  };
-
-  for (_iterator.s(); !(_step = _iterator.n()).done;) {
-    _loop();
-  }
-} catch (err) {
-  _iterator.e(err);
-} finally {
-  _iterator.f();
-}
+  }, {
+    threshold: 0.2
+  });
+  sections.forEach(function (section) {
+    return observer.observe(section);
+  });
+});
 
 /***/ })
 
@@ -957,6 +760,9 @@ try {
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -982,6 +788,18 @@ try {
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -996,6 +814,55 @@ try {
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript && document.currentScript.tagName.toUpperCase() === 'SCRIPT')
+/******/ 				scriptUrl = document.currentScript.src;
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) {
+/******/ 					var i = scripts.length - 1;
+/******/ 					while (i > -1 && (!scriptUrl || !/^http(s?):/.test(scriptUrl))) scriptUrl = scripts[i--].src;
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/^blob:/, "").replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		__webpack_require__.b = document.baseURI || self.location.href;
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"main": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		// no on chunks loaded
+/******/ 		
+/******/ 		// no jsonp function
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/nonce */

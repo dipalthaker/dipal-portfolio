@@ -1,15 +1,16 @@
 {
-  "name": "mp1",
+  "name": "Portfolio",
   "version": "1.0.0",
-  "description": "CS498RK MP1",
+  "description": "Dipal Thaker Personal Website",
   "scripts": {
-    "start": "webpack-dev-server",
-    "build": "webpack"
+    "start": "webpack serve --mode development --open",
+    "build": "webpack --mode production"
   },
-  "author": "UIUC Web Programming Staff",
+  "author": "Dipal Thaker",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.15.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/preset-env": "^7.15.0",
     "autoprefixer": "^10.4.20",
     "babel-loader": "^8.2.2",
@@ -20,8 +21,8 @@
     "postcss": "^8.3.6",
     "postcss-loader": "^7.3.4",
     "prettier": "^2.3.2",
-    "sass": "^1.38.2",
-    "sass-loader": "^14.2.1",
+    "sass": "^1.97.2",
+    "sass-loader": "^16.0.6",
     "style-loader": "^3.3.4",
     "webpack": "^5.101.3",
     "webpack-cli": "^5.1.4",

@@ -5,30 +5,46 @@ const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
 /* ===== Burger menu ===== */
+/* ===== Burger menu (mobile) ===== */
 const burger = document.querySelector(".burger");
 const menu = document.querySelector(".nav-menu");
 
 if (burger && menu) {
-  burger.addEventListener("click", () => {
-    const open = menu.getAttribute("data-open") === "true";
-    menu.setAttribute("data-open", String(!open));
-    burger.setAttribute("aria-expanded", String(!open));
+  const closeMenu = () => {
+    menu.classList.remove("is-open");
+    menu.setAttribute("data-open", "false");
+    burger.setAttribute("aria-expanded", "false");
+  };
+
+  const openMenu = () => {
+    menu.classList.add("is-open");
+    menu.setAttribute("data-open", "true");
+    burger.setAttribute("aria-expanded", "true");
+  };
+
+  burger.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const isOpen = menu.classList.contains("is-open");
+    isOpen ? closeMenu() : openMenu();
   });
 
+  // close when clicking a link inside
   menu.querySelectorAll("a").forEach((a) => {
-    a.addEventListener("click", () => {
-      menu.setAttribute("data-open", "false");
-      burger.setAttribute("aria-expanded", "false");
-    });
+    a.addEventListener("click", () => closeMenu());
   });
 
-  window.addEventListener("click", (e) => {
-    if (!menu.contains(e.target) && !burger.contains(e.target)) {
-      menu.setAttribute("data-open", "false");
-      burger.setAttribute("aria-expanded", "false");
-    }
+  // close when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!menu.contains(e.target) && !burger.contains(e.target)) closeMenu();
+  });
+
+  // close on escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMenu();
   });
 }
+
 
 /* ===== Smooth scroll with sticky header offset ===== */
 const navHeight = () => {
@@ -286,3 +302,6 @@ if (sectionEls.length) {
     }
   });
 })();
+
+
+

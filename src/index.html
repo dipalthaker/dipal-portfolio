@@ -127,7 +127,7 @@
           </a>
         
           <a class="resume-btn"
-              href="assets/Dipal A Thaker_Resume.pdf"
+              href="assets/Dipal Achalesh Thaker_Resume.pdf"
               target="_blank"
               rel="noopener">
               View Resume
@@ -797,64 +797,61 @@
           <img src="assets/image.jpeg" alt="Portrait" draggable="false" />
         </div>
 
-        <button class="hand-badge hand-badge--contact hoverable" type="button" aria-label="Hi">
+        <!-- <button class="hand-badge hand-badge--contact hoverable" type="button" aria-label="Hi">
           <span aria-hidden="true">Hi!</span>
-        </button>
+        </button> -->
       </div>
 
       <div class="contact-right">
         <h2 class="section-title">LET'S WORK TOGETHER</h2>
         <p class="section-lead">
-          Want to collaborate on a project, internship, or a data / full-stack build? Send a note.
+          Want to collaborate on a project, Full time opportunity, or a data / full-stack build? Send a note.
         </p>
 
-        <form
-  class="form"
-  action="https://formspree.io/f/mqebklwq"
-  method="POST"
->
-  <div class="form-row">
-    <label class="field">
-      <span>Name</span>
-      <input type="text" name="name" placeholder="Your name" required />
-    </label>
+        <form action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="8c04718a-f736-4751-bc4d-730229add79d">
+          <div class="form-row">
+            <label class="field">
+              <span>Name</span>
+              <input type="text" name="name" placeholder="Your name" required />
+            </label>
 
-    <label class="field">
-      <span>Email</span>
-      <input type="email" name="email" placeholder="your@email.com" required />
-    </label>
-  </div>
+            <label class="field">
+              <span>Email</span>
+              <input type="email" name="email" placeholder="your@email.com" required />
+            </label>
+          </div>
+<!-- 
+          <label class="field">
+            <span>Service Needed?</span>
+            <select name="service" required>
+              <option value="" disabled selected>Select...</option>
+              <option value="Project Collaboration">Project Collaboration</option>
+              <option value="Internship">Internship</option>
+              <option value="Data / Analytics">Data / Analytics</option>
+              <option value="Full-Stack Build">Full-stack build</option>
+              <option value="Other">Other</option>
+            </select>
+          </label> -->
 
-  <label class="field">
-    <span>Service Needed?</span>
-    <select name="service" required>
-      <option value="" disabled selected>Select...</option>
-      <option value="Project Collaboration">Project Collaboration</option>
-      <option value="Internship">Internship</option>
-      <option value="Data / Analytics">Data / Analytics</option>
-      <option value="Full-Stack Build">Full-stack build</option>
-      <option value="Other">Other</option>
-    </select>
-  </label>
+          <label class="field">
+            <br/><span>What can I help you with?</span>
+            <textarea
+              name="message"
+              rows="6"
+              placeholder="Tell me about what you want to build…"
+              required
+            ></textarea>
+          </label>
 
-  <label class="field">
-    <span>What can I help you with?</span>
-    <textarea
-      name="message"
-      rows="6"
-      placeholder="Tell me about what you want to build…"
-      required
-    ></textarea>
-  </label>
+          <!-- spam trap (leave it hidden) -->
+          <input type="text" name="_gotcha" style="display:none" />
 
-  <!-- spam trap (leave it hidden) -->
-  <input type="text" name="_gotcha" style="display:none" />
+          <!-- optional: subject line in the email you receive -->
+          <input type="hidden" name="_subject" value="New message from dipalthaker.github.io" />
 
-  <!-- optional: subject line in the email you receive -->
-  <input type="hidden" name="_subject" value="New message from dipalthaker.github.io" />
-
-  <button class="btn-solid btn-submit" type="submit">Submit</button>
-</form>
+        <br/><button class="btn-solid btn-submit" type="submit">Submit</button>
+        </form>   
 
       </div>
     </div>
@@ -865,6 +862,30 @@
         <a class="hoverable" href="#home">Top</a>
         <a class="hoverable" href="#projects">Projects</a>
         <a class="hoverable" href="#contact">Contact</a>
+      </div>
+      <div class="social-row">
+        <a class="icon-btn hoverable" 
+           href="https://www.linkedin.com/in/dipalthaker2/" 
+           aria-label="LinkedIn" 
+           target="_blank" 
+           rel="noopener noreferrer">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      
+        <a class="icon-btn hoverable" 
+           href="https://github.com/dipalthaker" 
+           aria-label="GitHub" 
+           target="_blank" 
+           rel="noopener noreferrer">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+      
+        <a class="resume-btn"
+            href="assets/Dipal Achalesh Thaker_Resume.pdf"
+            target="_blank"
+            rel="noopener">-
+            View Resume
+        </a>
       </div>
     </footer>
   </section>

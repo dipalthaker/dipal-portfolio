@@ -251,57 +251,41 @@ if (sectionEls.length) {
 
 
 // ===== Contact Form (Formspree) AJAX submit =====
-(() => {
-  const form = document.querySelector('form.form[action*="formspree.io"]');
-  if (!form) return;
+const contactForm = document.getElementById("contactForm");
 
-  form.addEventListener("submit", async (e) => {
+if (contactForm) {
+  contactForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const btn = form.querySelector('button[type="submit"]');
-    const original = btn ? btn.textContent : "";
-    if (btn) {
-      btn.disabled = true;
-      btn.textContent = "Sending...";
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "SENDING...";
     }
 
     try {
-      const res = await fetch(form.action, {
+      const res = await fetch(contactForm.action, {
         method: "POST",
-        body: new FormData(form),
+        body: new FormData(contactForm),
         headers: { Accept: "application/json" },
       });
 
       if (res.ok) {
-        form.reset();
-
-        // quick inline success message
-        let msg = form.querySelector(".form-status");
-        if (!msg) {
-          msg = document.createElement("p");
-          msg.className = "form-status";
-          form.appendChild(msg);
-        }
-        msg.textContent = "✅ Sent! I’ll get back to you soon.";
+        alert("Sent ✅");
+        contactForm.reset();
       } else {
-        throw new Error("Formspree error");
+        const data = await res.json().catch(() => null);
+        console.log("Formspree error:", data);
+        alert("Something went wrong.");
       }
     } catch (err) {
-      let msg = form.querySelector(".form-status");
-      if (!msg) {
-        msg = document.createElement("p");
-        msg.className = "form-status";
-        form.appendChild(msg);
-      }
-      msg.textContent = "❌ Something went wrong. Please try again.";
+      console.error(err);
+      alert("Something went wrong.");
     } finally {
-      if (btn) {
-        btn.disabled = false;
-        btn.textContent = original;
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "SUBMIT";
       }
     }
   });
-})();
-
-
-
+}

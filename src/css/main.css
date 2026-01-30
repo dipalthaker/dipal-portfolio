@@ -828,6 +828,7 @@ textarea{ border-radius: 22px; resize: vertical; padding: 16px; }
 
 .hand-badge span{
   font-size: 32px;
+  color: white;
   filter: drop-shadow(0 10px 14px rgba(0,0,0,.16));
 }
 

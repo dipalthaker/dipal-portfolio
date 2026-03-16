@@ -1,10 +1,87 @@
 console.log("main.js loaded ✅");
 
+/* ===== Dark Mode Toggle ===== */
+const html = document.documentElement;
+
+// Function to apply dark mode styles via JavaScript
+function applyDarkModeStyles(isDark) {
+  if (isDark) {
+    // Apply dark mode inline styles
+    html.style.backgroundColor = "#0f0f0f";
+    html.style.color = "#f0f0f0";
+    document.body.style.backgroundColor = "#0f0f0f";
+    document.body.style.color = "#f0f0f0";
+  } else {
+    // Remove dark mode inline styles (revert to CSS defaults)
+    html.style.backgroundColor = "";
+    html.style.color = "";
+    document.body.style.backgroundColor = "";
+    document.body.style.color = "";
+  }
+}
+
+function initTheme() {
+  const savedTheme = localStorage.getItem("theme");
+  const defaultTheme = "light";
+  const themeToUse = savedTheme || defaultTheme;
+  
+  html.setAttribute("data-theme", themeToUse);
+  applyDarkModeStyles(themeToUse === "dark");
+  updateThemeIcon(themeToUse);
+}
+
+function updateThemeIcon(theme) {
+  const icon = document.querySelector(".theme-icon");
+  if (icon) {
+    icon.textContent = theme === "dark" ? "☀️" : "🌙";
+  }
+}
+
+function toggleTheme(e) {
+  if (e) e.preventDefault();
+  e?.stopPropagation();
+  const currentTheme = html.getAttribute("data-theme");
+  const newTheme = currentTheme === "dark" ? "light" : "dark";
+  
+  html.setAttribute("data-theme", newTheme);
+  applyDarkModeStyles(newTheme === "dark");
+  localStorage.setItem("theme", newTheme);
+  updateThemeIcon(newTheme);
+}
+
+// Initialize theme immediately
+initTheme();
+
+// Setup theme toggle
+const setupThemeToggle = () => {
+  // Direct event delegation on document
+  document.addEventListener("click", function(e) {
+    const toggle = e.target.closest(".theme-toggle");
+    if (toggle) {
+      toggleTheme(e);
+    }
+  });
+
+  // Direct listener on button if it exists
+  const themeToggle = document.querySelector(".theme-toggle");
+  if (themeToggle) {
+    themeToggle.addEventListener("click", function(e) {
+      toggleTheme(e);
+    });
+  }
+};
+
+// Setup immediately if DOM is ready
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", setupThemeToggle);
+} else {
+  setupThemeToggle();
+}
+
 /* ===== Footer Year ===== */
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-/* ===== Burger menu ===== */
 /* ===== Burger menu (mobile) ===== */
 const burger = document.querySelector(".burger");
 const menu = document.querySelector(".nav-menu");
@@ -13,12 +90,14 @@ if (burger && menu) {
   const closeMenu = () => {
     menu.classList.remove("is-open");
     menu.setAttribute("data-open", "false");
+    burger.classList.remove("is-open");
     burger.setAttribute("aria-expanded", "false");
   };
 
   const openMenu = () => {
     menu.classList.add("is-open");
     menu.setAttribute("data-open", "true");
+    burger.classList.add("is-open");
     burger.setAttribute("aria-expanded", "true");
   };
 
@@ -29,22 +108,18 @@ if (burger && menu) {
     isOpen ? closeMenu() : openMenu();
   });
 
-  // close when clicking a link inside
   menu.querySelectorAll("a").forEach((a) => {
     a.addEventListener("click", () => closeMenu());
   });
 
-  // close when clicking outside
   document.addEventListener("click", (e) => {
     if (!menu.contains(e.target) && !burger.contains(e.target)) closeMenu();
   });
 
-  // close on escape
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeMenu();
   });
 }
-
 
 /* ===== Smooth scroll with sticky header offset ===== */
 const navHeight = () => {
@@ -134,9 +209,9 @@ if (isFinePointer && dot && ring) {
   });
 
   const animate = () => {
-    ringX = lerp(ringX, mouseX, 0.14);
-    ringY = lerp(ringY, mouseY, 0.14);
-    ringScale = lerp(ringScale, ringScaleTarget, 0.12);
+    ringX = lerp(ringX, mouseX, 0.22);
+    ringY = lerp(ringY, mouseY, 0.22);
+    ringScale = lerp(ringScale, ringScaleTarget, 0.18);
     setPos(ring, ringX, ringY, ringScale);
     requestAnimationFrame(animate);
   };
@@ -200,7 +275,6 @@ if (sectionEls.length) {
     document.querySelector(`.project-card[data-card-id="${id}"]`) ||
     document.querySelector(`.exp-item[data-card-id="${id}"]`);
 
-  // Flip on Details click
   document.addEventListener(
     "click",
     (e) => {
@@ -208,38 +282,30 @@ if (sectionEls.length) {
       if (!btn) return;
 
       e.preventDefault();
-      e.stopImmediatePropagation(); // VERY important
+      e.stopImmediatePropagation();
 
       const id = btn.dataset.flip;
       const card = findCard(id);
 
-      console.log("Flip click:", id, "card found:", !!card);
       if (!card) return;
 
-      // Close previously open card
       if (openCard && openCard !== card) {
         openCard.classList.remove("flipped");
       }
 
-      // Toggle current
       card.classList.toggle("flipped");
       openCard = card.classList.contains("flipped") ? card : null;
     },
     true
   );
 
-  // Click outside → close
   document.addEventListener("click", (e) => {
     if (!openCard) return;
-
-    // If click is inside the open card, ignore
     if (openCard.contains(e.target)) return;
-
     openCard.classList.remove("flipped");
     openCard = null;
   });
 
-  // ESC key → close
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && openCard) {
       openCard.classList.remove("flipped");
@@ -248,7 +314,48 @@ if (sectionEls.length) {
   });
 })();
 
+/* ===== Counter Animation for Stats ===== */
+function animateCounter(element, target) {
+  const isNumeric = /^[\d+]+$/.test(target);
+  if (!isNumeric) return;
+  
+  const numValue = parseInt(target);
+  let current = 0;
+  const increment = Math.ceil(numValue / 30);
+  const duration = 2000;
+  const stepTime = duration / 30;
+  
+  const interval = setInterval(() => {
+    current += increment;
+    if (current >= numValue) {
+      element.textContent = target;
+      clearInterval(interval);
+    } else {
+      element.textContent = current + "+";
+    }
+  }, stepTime);
+}
 
+const statsSection = document.querySelector(".stats");
+if (statsSection) {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const statNums = entry.target.querySelectorAll(".stat-num");
+        statNums.forEach((num) => {
+          if (!num.classList.contains("animated")) {
+            num.classList.add("animated");
+            const text = num.textContent.trim();
+            animateCounter(num, text);
+          }
+        });
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  
+  io.observe(statsSection);
+}
 
 // ===== Contact Form (Formspree) AJAX submit =====
 const contactForm = document.getElementById("contactForm");
